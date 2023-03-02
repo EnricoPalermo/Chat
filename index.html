@@ -1,0 +1,51 @@
+
+
+<html> 
+<head> 
+    <title>Lista de Tareas</title> 
+</head> 
+<body> 
+
+    <h1>Lista de Tareas</h1> 
+
+    <ul id="listaTareas"> 
+    </ul> 
+
+    <script type="text/javascript"> 
+
+        // Función para agregar tarea a la lista.  
+        function agregarTarea(){  
+
+            // Pedir tarea al usuario.  
+            var tarea = prompt("Ingresa una tarea:");  
+
+            // Crear elemento li y anexarlo a la lista.  
+            var elementoLi = document.createElement("li");  
+            elementoLi.innerHTML = tarea;  
+            document.getElementById("listaTareas").appendChild(elementoLi);  
+
+        }  
+
+        // Función para marcar una tarea como completada.  
+        function marcarCompletada(){  
+
+            // Pedir el índice de la tarea al usuario.  
+            var indice = prompt("Ingresa el índice de la tarea:");  
+
+            // Obtener todos los elementos li de la lista.  
+            var elementosLi = document.getElementById("listaTareas").children;  
+
+            // Obtener el elemento li seleccionado por el usuario y cambiar su estilo a "text-decoration: line-through".    
+            if(indice >= 0 && indice < elementosLi.length){    
+                elementosLi[indice].style = "text-decoration: line-through";    
+            } else {    
+                alert("Índice inválido.");    
+            }    
+
+        }     
+
+    </script> 
+
+    <!-- Botones para agregar y marcar como completada una tarea --> 
+    <button onclick="agregarTarea()">Agregar Tarea</button> 
+    <button onclick="marcarCompletada()">
